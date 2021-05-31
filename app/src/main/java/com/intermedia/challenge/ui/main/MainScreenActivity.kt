@@ -8,6 +8,11 @@ import androidx.navigation.ui.setupWithNavController
 import com.intermedia.challenge.R
 import com.intermedia.challenge.databinding.ActivityMainScreenBinding
 
+enum class ProviderType{
+    BASIC
+}
+
+
 class MainScreenActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMainScreenBinding
