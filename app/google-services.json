@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "983331300947",
+    "project_id": "intermedia-challenge-login",
+    "storage_bucket": "intermedia-challenge-login.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:983331300947:android:015541e25b07de81c3c8a6",
+        "android_client_info": {
+          "package_name": "com.intermedia.challenge"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "983331300947-989hr2rk2ktmuei9qhhj3f5vl4totj4f.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAELAQAjTH5dFKGbDC2YbKifeNOLFqWSkQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "983331300947-989hr2rk2ktmuei9qhhj3f5vl4totj4f.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
