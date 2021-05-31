@@ -1,8 +1,10 @@
 package com.intermedia.challenge.ui.login
 
+import android.content.Context
 import android.content.Intent
 import android.os.Bundle
-import androidx.appcompat.app.AlertDialog
+import android.view.View
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.google.firebase.auth.FirebaseAuth
 import com.intermedia.challenge.ui.main.MainScreenActivity
@@ -19,6 +21,23 @@ class LoginActivity : AppCompatActivity() {
     override fun onResume() {
         super.onResume()
         startFirebaseAuth()
+        session()
+    }
+
+    override fun onStart(){
+        super.onStart()
+        loginLayout.visibility = View.VISIBLE
+    }
+
+    private fun session(){
+        val prefs = getSharedPreferences(getString(R.string.prefs_files), Context.MODE_PRIVATE)
+        val email = prefs.getString("email", null)
+        val provider = prefs.getString("provider", null)
+
+        if (email != null && provider !=null){
+            loginLayout.visibility = View.INVISIBLE
+            showMainScreen(email, ProviderType.valueOf(provider))
+        }
     }
 
     private fun startFirebaseAuth() {
@@ -35,14 +54,7 @@ class LoginActivity : AppCompatActivity() {
                             }
                     }
             }
-
         }
-
-
-        // TODO complete using Firebase Auth UI
-
-        // TODO provisional
-
     }
 
     private fun showMainScreen(email: String, provider: ProviderType){
@@ -59,12 +71,9 @@ class LoginActivity : AppCompatActivity() {
     }
 
     private fun showAlert() {
-        val builder = AlertDialog.Builder(this)
-        builder.setTitle("Error")
-        builder.setMessage("Se ha producido un error de autenticación")
-        builder.setPositiveButton("Aceptar", null)
-        val dialog: AlertDialog = builder.create()
-        dialog.show()
+        val msj = "La combinación de correo electrónico y contraseña no es correcta. Por favor, intenta de nuevo."
+        Toast.makeText(this, msj, Toast.LENGTH_LONG).show()
+
     }
 
 }

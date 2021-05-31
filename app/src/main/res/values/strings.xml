@@ -3,5 +3,7 @@
 
     <string name="title_characters">Personajes</string>
     <string name="title_events">Eventos</string>
+    <string name="prefs_files">com.intermedia.challenge.PREFERENCE_FILE_KEY</string>
+
 
 </resources>
