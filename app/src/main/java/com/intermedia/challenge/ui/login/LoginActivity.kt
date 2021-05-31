@@ -7,7 +7,6 @@ import com.intermedia.challenge.ui.main.MainScreenActivity
 import com.intermedia.challenge.R
 
 class LoginActivity : AppCompatActivity() {
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
@@ -20,12 +19,15 @@ class LoginActivity : AppCompatActivity() {
 
     private fun startFirebaseAuth() {
         // TODO complete using Firebase Auth UI
-
-        // TODO provisional
         startActivity(Intent(this, MainScreenActivity::class.java).apply {
             addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
-            addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK)
-        })
+            addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK)})
+        // TODO provisional
+
+
+
+
+
     }
 
 }
