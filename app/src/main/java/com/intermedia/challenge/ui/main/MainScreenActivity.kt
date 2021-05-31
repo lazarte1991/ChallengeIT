@@ -1,5 +1,6 @@
 package com.intermedia.challenge.ui.main
 
+import android.content.Context
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.NavController
@@ -9,7 +10,7 @@ import com.intermedia.challenge.R
 import com.intermedia.challenge.databinding.ActivityMainScreenBinding
 
 enum class ProviderType{
-    BASIC
+    BASIC,
 }
 
 
@@ -26,6 +27,14 @@ class MainScreenActivity : AppCompatActivity() {
         navController = findNavController(R.id.nav_host_fragment)
         binding.bottomNavView.setupWithNavController(navController)
         binding.bottomNavView.itemIconTintList = null
+
+        val bundle = intent.extras
+        val email = bundle?.getString("email")
+        val provider = bundle?.getString("provider")
+        val prefs = getSharedPreferences(getString(R.string.prefs_files), Context.MODE_PRIVATE).edit()
+        prefs.putString("email", email)
+        prefs.putString("provider",provider)
+        prefs.apply()
     }
 
 }
