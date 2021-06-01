@@ -8,6 +8,7 @@ import androidx.navigation.findNavController
 import androidx.navigation.ui.setupWithNavController
 import com.intermedia.challenge.R
 import com.intermedia.challenge.databinding.ActivityMainScreenBinding
+import kotlinx.android.synthetic.main.activity_main_screen.*
 
 enum class ProviderType{
     BASIC,
@@ -38,6 +39,13 @@ class MainScreenActivity : AppCompatActivity() {
         prefs.putString("email", email)
         prefs.putString("provider",provider)
         prefs.apply()
+
+    }
+
+    private fun iconSelected(){
+
+        bottom_nav_view.setOnNavigationItemReselectedListener {  }
+
 
     }
 
