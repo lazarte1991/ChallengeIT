@@ -27,55 +27,82 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
 
-                <ImageView
-                    android:id="@+id/detailsImage"
-                    android:layout_width="match_parent"
-                    android:layout_height="360dp"
-                    imageThumbnail="@{character.thumbnail}"
-                    app:layout_constraintDimensionRatio="1"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    tools:src="@tools:sample/backgrounds/scenic"
-                    tools:text="Thanos" />
-
                 <LinearLayout
-                    android:id="@+id/detailsContainer"
-                    android:layout_width="0dp"
-                    android:layout_height="?attr/actionBarSize"
-                    android:background="@color/cardview_dark_background"
-                    app:layout_constraintBottom_toBottomOf="@id/detailsImage"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
                     android:orientation="vertical">
 
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@color/black_header"
+                        android:orientation="horizontal"
+                        android:paddingLeft="20dp"
+                        android:textAlignment="center">
+
+                        <Button
+                            android:id="@+id/btnClosed"
+                            android:layout_width="26dp"
+                            android:layout_height="26dp"
+                            android:background="@android:drawable/ic_menu_close_clear_cancel" />
+
+                        <TextView
+                            android:id="@+id/detailsName"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center"
+                            android:paddingTop="20dp"
+                            android:paddingRight="40dp"
+                            android:paddingBottom="16.5dp"
+                            android:text="@{character.name}"
+                            android:textAlignment="center"
+                            android:textAllCaps="true"
+                            android:textColor="@color/white"
+                            android:textSize="20dp"
+                            tools:text="THANOS" />
+                    </LinearLayout>
+
+                    <ImageView
+                        android:id="@+id/detailsImage"
+                        imageThumbnail="@{character.thumbnail}"
+                        android:layout_width="match_parent"
+                        android:layout_height="360dp"
+                        tools:srcCompat="@tools:sample/backgrounds/scenic" />
 
                     <TextView
-                        android:id="@+id/detailsName"
+                        android:id="@+id/detailsDescription"
                         android:layout_width="match_parent"
-                        android:layout_height="55dp"
+                        android:layout_height="wrap_content"
                         android:gravity="center"
-                        android:textColor="@color/white"
-                        android:textSize="20sp"
-                        android:text="@{character.name}"
-                        tools:text="THANOS"
-                        tools:ignore="MissingConstraints" />
+                        android:paddingLeft="52dp"
+                        android:paddingTop="21dp"
+                        android:paddingRight="53dp"
+                        android:paddingBottom="21dp"
+                        android:text="@{character.description}"
+                        android:textColor="@color/black_header"
+                        android:textSize="14sp"
+                        tools:text="lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem loremlorem lorem lorem loremlorem lorem" />
+
+                    <TextView
+                        android:id="@+id/textView3"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:paddingTop="21dp"
+                        android:paddingBottom="21dp"
+                        android:text="appears in these comics"
+                        android:textAlignment="center"
+                        android:textAllCaps="true"
+                        android:textColor="@color/black_header"
+                        android:textSize="20sp" />
+
+                    <androidx.fragment.app.FragmentContainerView
+                        android:id="@+id/fragmentContainerView"
+                        android:name="com.intermedia.challenge.ui.comics.ComicsFragment"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content" />
+
+
                 </LinearLayout>
-
-                <TextView
-                    android:id="@+id/detailsDescription"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/detailsImage"
-                    android:text="@{character.description}"
-                    android:textSize="20sp"
-                    android:layout_marginTop="20dp"
-                    android:gravity="center"
-                    tools:text="Detalles" />
-
-
             </androidx.constraintlayout.widget.ConstraintLayout>
 
         </ScrollView>

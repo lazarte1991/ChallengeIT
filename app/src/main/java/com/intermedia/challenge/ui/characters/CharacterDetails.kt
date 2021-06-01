@@ -19,26 +19,24 @@ class CharacterDetails : AppCompatActivity() {
 
         retrieveCharacter()
         renderUi()
+        closed()
     }
 
     //
 
 
 
-
- private fun retrieveCharacter() {
+    private fun retrieveCharacter() {
     character = intent.getParcelableExtra<Character>("character")
 
      //context?.toast(character.toString(), Toast.LENGTH_LONG)
      // Log.e(intent.toString(),"++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++")
+    }
 
- }
-
-
-private fun renderUi() {
-   var binding = ActivityCharacterDetailsBinding.inflate(layoutInflater)
-    setContentView(binding.root)
-    binding.character = character
+    private fun renderUi() {
+        var binding = ActivityCharacterDetailsBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+        binding.character = character
 
 
 
@@ -49,7 +47,13 @@ private fun renderUi() {
    // detailsName.text = img
 
     //Log.e(img.toString(),"++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++")
-}
+       }
+    private fun closed(){
+        btnClosed.setOnClickListener{
+            onBackPressed()
+        }
+    }
+
 
 
 /*
