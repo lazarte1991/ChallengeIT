@@ -29,13 +29,16 @@ class MainScreenActivity : AppCompatActivity() {
         binding.bottomNavView.setupWithNavController(navController)
         binding.bottomNavView.itemIconTintList = null
 
-      /*  val bundle = intent.extras
+
+        //Guardado de datos para la session
+        val bundle = intent.extras
         val email = bundle?.getString("email")
         val provider = bundle?.getString("provider")
         val prefs = getSharedPreferences(getString(R.string.prefs_files), Context.MODE_PRIVATE).edit()
         prefs.putString("email", email)
         prefs.putString("provider",provider)
-        prefs.apply()*/
+        prefs.apply()
+
     }
 
 }

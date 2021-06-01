@@ -7,6 +7,11 @@ import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.facebook.CallbackManager
+import com.facebook.FacebookCallback
+import com.facebook.FacebookException
+import com.facebook.login.LoginManager
+import com.facebook.login.LoginResult
+import com.google.firebase.auth.FacebookAuthProvider
 import com.google.firebase.auth.FirebaseAuth
 import com.intermedia.challenge.ui.main.MainScreenActivity
 import com.intermedia.challenge.R
@@ -14,6 +19,8 @@ import com.intermedia.challenge.ui.main.ProviderType
 import kotlinx.android.synthetic.main.activity_login.*
 
 class LoginActivity : AppCompatActivity() {
+
+    private val callbackManager = CallbackManager.Factory.create()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -69,6 +76,45 @@ class LoginActivity : AppCompatActivity() {
                 }
             }
         }
+
+        singUpFacebook.setOnClickListener{
+
+            LoginManager.getInstance().logInWithReadPermissions(this, listOf("email"))
+            LoginManager.getInstance().registerCallback(callbackManager,
+              object  : FacebookCallback<LoginResult>{
+
+                override fun onSuccess(result: LoginResult?) {
+                    result?.let {
+                        val token = it.accessToken
+                        val credential = FacebookAuthProvider.getCredential(token.token)
+                        FirebaseAuth.getInstance().signInWithCredential(credential).addOnCompleteListener{
+
+                            if (it.isSuccessful) {
+                                showMainScreen(it.result?.user?.email?: "", ProviderType.FACEBOOK)
+                            }else{
+                                showAlert()
+                            }
+                        }
+                    }
+                }
+
+                override fun onCancel() {
+
+                }
+
+                override fun onError(error: FacebookException?) {
+                    showAlert()
+                }
+            })
+
+
+        }
+    }
+
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+
+        callbackManager.onActivityResult(requestCode, resultCode, data)
+        super.onActivityResult(requestCode, resultCode, data)
     }
 
     private fun showMainScreen(email: String, provider: ProviderType){
