@@ -8,5 +8,10 @@
     <color name="transparent">#00000000</color>
     <color name="gris_claro">#ECEFF1</color>
     <color name="gris_intermedio">#0000000B</color>
+    <color name="black_header">#262626</color>
+    <color name="gray_button">#EFEFE7</color>
+    <color name="text_button">#00000099</color>
+
+
 
 </resources>
