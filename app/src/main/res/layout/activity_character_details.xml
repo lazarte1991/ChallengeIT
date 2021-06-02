@@ -95,11 +95,6 @@
                         android:textColor="@color/black_header"
                         android:textSize="20sp" />
 
-                    <androidx.fragment.app.FragmentContainerView
-                        android:id="@+id/fragmentContainerView"
-                        android:name="com.intermedia.challenge.ui.comics.ComicsFragment"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content" />
 
 
                 </LinearLayout>

@@ -17,6 +17,7 @@ class CharacterDetails : AppCompatActivity() {
         super.onCreate(savedInstanceState)
 
 
+
         retrieveCharacter()
         renderUi()
         closed()
