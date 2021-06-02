@@ -59,6 +59,7 @@ dependencies {
     implementation 'com.google.firebase:firebase-auth-ktx'
     implementation 'com.facebook.android:facebook-android-sdk:4.42.0'
     implementation 'com.google.firebase:firebase-database:20.0.0'
+    implementation 'com.facebook.android:facebook-android-sdk:[8,9)'
 
 
     // Koin
