@@ -20,6 +20,7 @@
             android:background="@color/black_header"
             android:paddingBottom="23dp"
             app:srcCompat="@mipmap/ic_logo" />
+
     </LinearLayout>
 
     <LinearLayout
@@ -41,7 +42,7 @@
             android:id="@+id/emailEditText"
             android:layout_width="match_parent"
             android:layout_height="56dp"
-            android:background="@color/com_facebook_button_border_color_focused"
+            android:background="@color/gray_button"
             android:drawableLeft="@mipmap/ic_email_black_24dp"
             android:drawablePadding="10dp"
             android:ems="10"
@@ -62,7 +63,7 @@
             android:id="@+id/passwordEditText"
             android:layout_width="match_parent"
             android:layout_height="56dp"
-            android:background="@color/com_facebook_button_border_color_focused"
+            android:background="@color/gray_button"
             android:drawableLeft="@mipmap/ic_lock_black_24dp"
             android:drawablePadding="10dp"
             android:ems="10"
@@ -90,7 +91,7 @@
                 android:layout_weight="1"
                 android:background="@drawable/btn_login"
                 android:text="Registrarse"
-                android:textColor="@color/com_facebook_button_background_color_focused_disabled" />
+                android:textColor="@color/black_header" />
 
             <Space
                 android:layout_width="5dp"
@@ -103,7 +104,7 @@
                 android:layout_weight="1"
                 android:background="@drawable/btn_login"
                 android:text="Ingresar"
-                android:textColor="@color/com_facebook_button_background_color_focused_disabled" />
+                android:textColor="@color/black_header" />
 
         </LinearLayout>
 
@@ -111,16 +112,13 @@
             android:layout_width="match_parent"
             android:layout_height="20dp" />
 
-        <Button
-            android:id="@+id/singUpFacebook"
-            android:layout_width="match_parent"
+        <com.facebook.login.widget.LoginButton
+            android:id="@+id/login_button"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:background="@drawable/btn_redondo"
-            android:drawableLeft="@drawable/com_facebook_button_login_logo"
-            android:paddingStart="45dp"
-            android:text="Registrase con Facebook"
-            android:textColor="@color/com_facebook_button_background_color_focused" />
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="30dp"
+            android:layout_marginBottom="30dp" />
 
     </LinearLayout>
 
