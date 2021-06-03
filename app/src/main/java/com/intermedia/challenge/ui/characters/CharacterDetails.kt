@@ -3,8 +3,13 @@ package com.intermedia.challenge.ui.characters
 import android.annotation.SuppressLint
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
+import android.widget.ArrayAdapter
+import android.widget.ListView
 import com.bumptech.glide.Glide
 import com.intermedia.challenge.R
+import com.intermedia.challenge.data.models.Appearance
+import com.intermedia.challenge.data.models.Appearances
 import com.intermedia.challenge.data.models.Character
 import com.intermedia.challenge.databinding.ActivityCharacterDetailsBinding
 import kotlinx.android.synthetic.main.activity_character_details.*
@@ -39,16 +44,22 @@ class CharacterDetails : AppCompatActivity() {
         setContentView(binding.root)
         binding.character = character
 
+        val arrayAdapter : ArrayAdapter<String>
+        val comics = mutableListOf(character.comics)
+        val listaComics = findViewById<ListView>(R.id.lista_comics)
 
+        val arrayString : ArrayList<String> = ArrayList()
 
-    //character.thumbnail.let { mCover ->
-     //   detailsImage.LoadImage(mCover)}
+        for(i in comics[0].appearances) {
+            arrayString.add(i.name)
+        }
 
-    //Glide.with(this).load(intent.getStringExtra("urlImg")).into(detailsImage)
-   // detailsName.text = img
+        arrayAdapter = ArrayAdapter(this,android.R.layout.simple_list_item_1, arrayString)
 
-    //Log.e(img.toString(),"++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++")
-       }
+        listaComics.adapter = arrayAdapter
+
+    }
+
     private fun closed(){
         btnClosed.setOnClickListener{
             onBackPressed()
