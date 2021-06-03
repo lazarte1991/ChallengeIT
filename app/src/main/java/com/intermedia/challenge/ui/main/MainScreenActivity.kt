@@ -9,6 +9,8 @@ import androidx.navigation.ui.setupWithNavController
 import com.intermedia.challenge.R
 import com.intermedia.challenge.databinding.ActivityMainScreenBinding
 import kotlinx.android.synthetic.main.activity_main_screen.*
+import kotlinx.android.synthetic.main.view_hero_item.*
+import kotlinx.android.synthetic.main.view_hero_item.view.*
 
 enum class ProviderType{
     BASIC,
@@ -30,7 +32,6 @@ class MainScreenActivity : AppCompatActivity() {
         binding.bottomNavView.setupWithNavController(navController)
         binding.bottomNavView.itemIconTintList = null
 
-
         //Guardado de datos para la session
         val bundle = intent.extras
         val email = bundle?.getString("email")
@@ -39,14 +40,9 @@ class MainScreenActivity : AppCompatActivity() {
         prefs.putString("email", email)
         prefs.putString("provider",provider)
         prefs.apply()
+        
 
     }
 
-    private fun iconSelected(){
-
-        bottom_nav_view.setOnNavigationItemReselectedListener {  }
-
-
-    }
 
 }
