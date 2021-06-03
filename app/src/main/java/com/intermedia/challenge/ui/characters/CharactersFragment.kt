@@ -49,9 +49,6 @@ class CharactersFragment : Fragment() {
 
             val intent = Intent(context, CharacterDetails::class.java)
             intent.putExtra("character",character)
-           // val urlImage = character.thumbnail.path+"."+character.thumbnail.extension
-          //  intent.putExtra("urlImg", urlImage)
-            // Log.e(urlImage,"++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++")
             startActivity(intent)
             // TODO complete
         }

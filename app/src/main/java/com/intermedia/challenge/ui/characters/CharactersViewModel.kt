@@ -1,5 +1,6 @@
 package com.intermedia.challenge.ui.characters
 
+import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -13,18 +14,24 @@ class CharactersViewModel(private val charactersRepository: CharactersRepository
 
     private val _characters = MutableLiveData<List<Character>>()
     val characters: LiveData<List<Character>> get() = _characters
-
+    var offset = 0
     init {
-        loadCharacters(0)
+
+        loadCharacters(offset)
     }
 
     private fun loadCharacters(offset: Int) {
         viewModelScope.launch {
             when (val response = charactersRepository.getCharacters(offset)) {
+
                 is NetResult.Success -> {
                     _characters.postValue(response.data.charactersList.characters)
+
+
                 }
                 is NetResult.Error -> {
+
+                    Log.e("ERROR","::::::::::::::::::::::::::::::::::::::::::::::::")
                     // TODO complete
                 }
             }
@@ -32,6 +39,9 @@ class CharactersViewModel(private val charactersRepository: CharactersRepository
     }
 
     fun loadMoreCharacters() {
-        // TODO complete
+
+        offset += 15
+        Log.e(offset.toString(),"::::::::::::::::::::::::::::::::::::::::::::::::")
+       loadCharacters(offset)
     }
 }
