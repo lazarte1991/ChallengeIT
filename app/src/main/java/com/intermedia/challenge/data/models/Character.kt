@@ -21,7 +21,7 @@ data class Appearances(
     val available: Int = 0,
     val collectionURI: String = "",
     @SerializedName("items")
-    val appearances: List<Appearance> = listOf(),
+    var appearances: List<Appearance> = listOf(),
     val returned: Int = 0
 ):Parcelable
 @Parcelize

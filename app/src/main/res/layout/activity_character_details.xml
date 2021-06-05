@@ -11,13 +11,14 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         tools:context=".ui.characters.CharacterDetails">
 
 
         <ScrollView
             android:layout_width="0dp"
-            android:layout_height="0dp"
+            android:layout_height="wrap_content"
+            android:nestedScrollingEnabled="true"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -30,7 +31,8 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:orientation="vertical">
+                    android:orientation="vertical"
+                    android:background="@color/white">
 
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -96,21 +98,16 @@
                         android:textColor="@color/black_header"
                         android:textSize="20sp" />
 
-                    <ListView
-                        android:id="@+id/lista_comics"
-                        android:layout_width="wrap_content"
-                        android:layout_height="800dp"
-                        android:background="@color/gris_intermedio"
-                        android:divider="@color/cardview_dark_background"
-                        android:dividerHeight="1dp"
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/list_comics"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@color/back_gray"
                         android:fadeScrollbars="true"
-                        android:paddingLeft="5dp"
-                        android:paddingTop="40dp"
-                        android:paddingRight="5dp"
-                        android:paddingBottom="8dp"
-                        android:scrollbars="none"
-                        tools:ignore="MissingConstraints" />
-                    <!--   android:cacheColorHint="@android:color/transparent" -->
+                        android:nestedScrollingEnabled="false"
+                        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                        tools:itemCount="10"
+                        tools:listitem="@layout/view_comic_item" />
 
                 </LinearLayout>
 
