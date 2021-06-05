@@ -7,10 +7,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import com.intermedia.challenge.databinding.FragmentEventsBinding
-import kotlinx.android.synthetic.main.view_event_item.*
-import kotlinx.android.synthetic.main.view_event_item.view.*
 import org.koin.android.viewmodel.ext.android.sharedViewModel
 
 
