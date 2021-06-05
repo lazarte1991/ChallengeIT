@@ -14,6 +14,9 @@ class CharactersViewModel(private val charactersRepository: CharactersRepository
 
     private val _characters = MutableLiveData<List<Character>>()
     val characters: LiveData<List<Character>> get() = _characters
+    private val list = mutableListOf<Character>()
+
+
     var offset = 0
     init {
 
@@ -25,8 +28,9 @@ class CharactersViewModel(private val charactersRepository: CharactersRepository
             when (val response = charactersRepository.getCharacters(offset)) {
 
                 is NetResult.Success -> {
-                    _characters.postValue(response.data.charactersList.characters)
 
+                    list.addAll(response.data.charactersList.characters)
+                    _characters.postValue(list)
 
                 }
                 is NetResult.Error -> {

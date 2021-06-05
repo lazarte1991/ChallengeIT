@@ -17,8 +17,8 @@
 
         <ScrollView
             android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:nestedScrollingEnabled="true"
+            android:layout_height="0dp"
+            android:nestedScrollingEnabled="false"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -30,9 +30,11 @@
 
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/white"
                     android:orientation="vertical"
-                    android:background="@color/white">
+                    android:scrollbarAlwaysDrawVerticalTrack="false"
+                    tools:ignore="MissingConstraints">
 
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -86,28 +88,34 @@
                         android:textSize="14sp"
                         tools:text="lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem loremlorem lorem lorem loremlorem lorem" />
 
-                    <TextView
-                        android:id="@+id/textView3"
+                    <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:paddingTop="21dp"
-                        android:paddingBottom="21dp"
-                        android:text="appears in these comics"
-                        android:textAlignment="center"
-                        android:textAllCaps="true"
-                        android:textColor="@color/black_header"
-                        android:textSize="20sp" />
+                        android:orientation="vertical">
 
-                    <androidx.recyclerview.widget.RecyclerView
-                        android:id="@+id/list_comics"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:background="@color/back_gray"
-                        android:fadeScrollbars="true"
-                        android:nestedScrollingEnabled="false"
-                        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-                        tools:itemCount="10"
-                        tools:listitem="@layout/view_comic_item" />
+                        <TextView
+                            android:id="@+id/textView3"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:paddingTop="21dp"
+                            android:paddingBottom="21dp"
+                            android:text="appears in these comics"
+                            android:textAlignment="center"
+                            android:textAllCaps="true"
+                            android:textColor="@color/black_header"
+                            android:textSize="20sp" />
+
+                        <androidx.recyclerview.widget.RecyclerView
+                            android:id="@+id/list_comics"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="@color/back_gray"
+                            android:fadeScrollbars="true"
+                            android:nestedScrollingEnabled="false"
+                            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                            tools:itemCount="10"
+                            tools:listitem="@layout/view_comic_item" />
+                    </LinearLayout>
 
                 </LinearLayout>
 
