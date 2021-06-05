@@ -14,61 +14,116 @@
         android:id="@+id/itemLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginVertical="4dp"
         android:layout_marginHorizontal="8dp"
+        android:layout_marginVertical="4dp"
         app:cardCornerRadius="4dp">
 
-        <androidx.constraintlayout.widget.ConstraintLayout
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="120dp">
-
-            <ImageView
-                android:id="@+id/image_event_thumbnail"
-                imageThumbnail="@{event.thumbnail}"
-                android:layout_width="0dp"
-                android:layout_height="0dp"
-                app:layout_constraintDimensionRatio="1"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+            android:layout_height="wrap_content"
+            android:gravity="clip_vertical"
+            android:orientation="vertical">
 
             <LinearLayout
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:orientation="vertical"
-                android:layout_marginVertical="16dp"
-                android:layout_marginStart="16dp"
-                android:layout_marginEnd="30dp"
-                app:layout_constraintStart_toEndOf="@id/image_event_thumbnail"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintBottom_toBottomOf="parent">
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:paddingLeft="10dp"
+                android:paddingTop="10dp">
 
-                <TextView
-                    android:id="@+id/text_title"
-                    android:layout_width="match_parent"
+                <ImageView
+                    android:id="@+id/image_event_thumbnail"
+                    imageThumbnail="@{event.thumbnail}"
+                    android:layout_width="86dp"
+                    android:layout_height="86dp"
+                    android:layout_gravity="clip_vertical"
+                    android:scaleType="centerCrop"
+                    tools:srcCompat="@tools:sample/backgrounds/scenic" />
+
+                <LinearLayout
+                    android:layout_width="200dp"
                     android:layout_height="wrap_content"
-                    android:textSize="24sp"
-                    android:text="@{event.title}"
-                    tools:text="EVENTO" />
+                    android:layout_gravity="top|fill_vertical"
+                    android:layout_marginVertical="16dp"
+                    android:layout_marginStart="16dp"
+                    android:orientation="vertical"
+                    android:paddingStart="10dp">
 
-                <Space
-                    android:layout_width="match_parent"
-                    android:layout_height="9dp" />
+                    <TextView
+                        android:id="@+id/text_title"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:maxLines="1"
+                        android:text="@{event.title}"
+                        android:textSize="24sp"
+                        tools:text="EVENTO" />
 
-                <TextView
-                    android:id="@+id/text_description"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:ellipsize="end"
-                    android:maxLines="2"
-                    android:textSize="14sp"
-                    android:text="@{event.description}"
-                    tools:text="@tools:sample/lorem/random" />
+                    <Space
+                        android:layout_width="match_parent"
+                        android:layout_height="9dp" />
+
+                    <TextView
+                        android:id="@+id/text_description"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:ellipsize="end"
+                        android:maxLines="1"
+                        android:text="9 de Agosto 2020"
+                        android:textSize="14sp"
+                        tools:text="9 de Agosto 2020" />
+
+                </LinearLayout>
+
+                <ImageView
+                    android:id="@+id/button2"
+                    android:layout_width="23dp"
+                    android:layout_height="23dp"
+                    android:layout_gravity="center"
+                    app:srcCompat="@mipmap/ic_down_icon" />
+
 
             </LinearLayout>
 
-        </androidx.constraintlayout.widget.ConstraintLayout>
+            <LinearLayout
+                android:id="@+id/comicLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom"
+                android:orientation="vertical"
+                android:visibility="gone"
+                tools:visibility="gone">
+
+                <TextView
+                    android:id="@+id/list"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="COMICS TO DISCUSS"
+                    android:textAlignment="center"
+                    android:textAllCaps="true"
+                    android:textSize="20sp" />
+
+                <ListView
+                    android:id="@+id/lista_comics"
+                    android:layout_width="wrap_content"
+                    android:layout_height="300dp"
+                    android:layout_gravity="bottom"
+                    android:background="@color/gris_intermedio"
+                    android:divider="@color/cardview_dark_background"
+                    android:dividerHeight="1dp"
+                    android:fadeScrollbars="true"
+                    android:foregroundGravity="bottom"
+                    android:paddingLeft="5dp"
+                    android:paddingTop="40dp"
+                    android:paddingRight="5dp"
+                    android:paddingBottom="8dp"
+                    android:scrollbars="none"
+                    tools:ignore="MissingConstraints" />
+
+
+            </LinearLayout>
+
+        </LinearLayout>
+
 
     </androidx.cardview.widget.CardView>
 

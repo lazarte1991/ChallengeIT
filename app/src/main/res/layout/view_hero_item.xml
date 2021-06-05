@@ -27,6 +27,7 @@
                 imageThumbnail="@{character.thumbnail}"
                 android:layout_width="0dp"
                 android:layout_height="0dp"
+                android:scaleType="centerCrop"
                 app:layout_constraintDimensionRatio="1"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -61,7 +62,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:ellipsize="end"
-                    android:maxLines="2"
+                    android:maxLines="1"
                     android:textSize="14sp"
                     android:text="@{character.description}"
                     tools:text="Using the power of the Infinity Stones, Thanos... believes he can ultimately save the universe by wiping out half of its population." />

@@ -2,12 +2,15 @@ package com.intermedia.challenge.ui.events
 
 import android.content.Context
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import com.intermedia.challenge.databinding.FragmentEventsBinding
+import kotlinx.android.synthetic.main.view_event_item.*
+import kotlinx.android.synthetic.main.view_event_item.view.*
 import org.koin.android.viewmodel.ext.android.sharedViewModel
 
 
@@ -33,11 +36,16 @@ class EventsFragment : Fragment() {
         setupEventsList()
     }
 
-    private fun Context?.toast(text: CharSequence, duration: Int = Toast.LENGTH_LONG) = this?.let { Toast.makeText(it, text, duration).show() }
+    //private fun Context?.toast(text: CharSequence, duration: Int = Toast.LENGTH_LONG) = this?.let { Toast.makeText(it, text, duration).show() }
 
     private fun setupEventsList() {
+
+
         adapter.onClickListener = { event ->
-            context?.toast(event.title, Toast.LENGTH_LONG)
+
+
+
+           // context?.toast(event.title, Toast.LENGTH_LONG)
             // TODO complete
         }
         binding.listEvents.adapter = adapter
