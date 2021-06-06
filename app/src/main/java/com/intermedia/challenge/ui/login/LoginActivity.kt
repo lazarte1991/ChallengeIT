@@ -62,7 +62,7 @@ class LoginActivity : AppCompatActivity() {
     override fun onResume() {
         super.onResume()
         startFirebaseAuth()
-        session()
+        //session()
     }
     public override fun onStart() {
         super.onStart()

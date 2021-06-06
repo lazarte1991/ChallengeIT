@@ -12,7 +12,8 @@
         android:roundIcon="@drawable/ic_superhero_selected"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".ui.characters.CharacterDetails"></activity>
+        <activity android:name=".ui.characters.CharacterDetails"
+            android:theme="@style/AppTheme"></activity>
         <activity
             android:name=".ui.login.LoginActivity"
             android:screenOrientation="portrait">
