@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Marvel App</string>
+    <string name="app_name">Marvel Challenge</string>
 
     <string name="title_characters">Personajes</string>
     <string name="title_events">Eventos</string>

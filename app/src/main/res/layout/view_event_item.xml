@@ -68,7 +68,7 @@
                         android:layout_height="wrap_content"
                         android:ellipsize="end"
                         android:maxLines="1"
-                        android:text="9 de Agosto 2020"
+                        android:text="@{event.start}"
                         android:textSize="14sp"
                         tools:text="9 de Agosto 2020" />
 

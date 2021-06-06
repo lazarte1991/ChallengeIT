@@ -16,6 +16,7 @@ import com.intermedia.challenge.R
 import com.intermedia.challenge.R.*
 import com.intermedia.challenge.databinding.FragmentEventsBinding
 import com.intermedia.challenge.ui.appearances.AppearancesAdapter
+import kotlinx.android.synthetic.main.view_event_item.view.*
 import org.koin.android.viewmodel.ext.android.sharedViewModel
 
 
@@ -47,6 +48,7 @@ class EventsFragment : Fragment() {
 
         binding.listEvents.adapter = adapter
         viewModel.events.observe(viewLifecycleOwner, { events ->
+
             adapter.update(events)
         })
     }

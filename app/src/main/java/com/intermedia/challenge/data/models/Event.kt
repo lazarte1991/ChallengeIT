@@ -1,6 +1,7 @@
 package com.intermedia.challenge.data.models
 
 import java.io.Serializable
+import java.util.*
 
 data class Event(
     val id: Int = 0,
@@ -8,9 +9,9 @@ data class Event(
     val description: String = "",
     val resourceURI: String = "",
     val urls: List<Url> = listOf(),
-    // val modified: Date,
-    // val start: Date,
-    // val end: Date,
+    val modified: String,
+    var start: String,
+    val end: String,
     val thumbnail: Thumbnail = Thumbnail(),
     val comics: Appearances = Appearances(),
     val stories: Appearances = Appearances(),
