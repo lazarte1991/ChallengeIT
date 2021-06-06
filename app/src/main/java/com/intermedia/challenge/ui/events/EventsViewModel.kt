@@ -4,6 +4,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.intermedia.challenge.data.models.Character
 import com.intermedia.challenge.data.models.Event
 import com.intermedia.challenge.data.models.NetResult
 import com.intermedia.challenge.data.repositories.EventsRepository
@@ -13,6 +14,7 @@ class EventsViewModel (private val eventsRepository: EventsRepository) : ViewMod
 
     private val _events = MutableLiveData<List<Event>>()
     val events: LiveData<List<Event>> get() = _events
+    private val list = mutableListOf<Event>()
 
     init {
         loadEvents(0)
@@ -22,7 +24,10 @@ class EventsViewModel (private val eventsRepository: EventsRepository) : ViewMod
         viewModelScope.launch {
             when (val response = eventsRepository.getEvents(offset)) {
                 is NetResult.Success -> {
-                    _events.postValue(response.data.eventsList.events)
+
+                    list.addAll(response.data.eventsList.events.sortedByDescending { it.start })
+                    _events.postValue(list.sortedBy { it.start })
+
                 }
                 is NetResult.Error -> {
                     // TODO complete

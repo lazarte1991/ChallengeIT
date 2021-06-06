@@ -1,20 +1,21 @@
 package com.intermedia.challenge.ui.events
 
+import android.annotation.SuppressLint
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.recyclerview.widget.DividerItemDecoration
-import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.intermedia.challenge.R
-import com.intermedia.challenge.data.models.Appearance
 import com.intermedia.challenge.data.models.Event
-import com.intermedia.challenge.ui.base.BaseAdapter
 import com.intermedia.challenge.databinding.ViewEventItemBinding
 import com.intermedia.challenge.ui.appearances.AppearancesAdapter
+import com.intermedia.challenge.ui.base.BaseAdapter
 import kotlinx.android.synthetic.main.view_event_item.*
 import kotlinx.android.synthetic.main.view_event_item.view.*
-import android.graphics.drawable.Drawable as Drawable
+import java.text.DateFormat
+import java.text.SimpleDateFormat
+import java.util.*
 
 class EventsAdapter : BaseAdapter<Event, EventsAdapter.EventsViewHolder>() {
 
@@ -42,8 +43,18 @@ class EventsAdapter : BaseAdapter<Event, EventsAdapter.EventsViewHolder>() {
     ) : RecyclerView.ViewHolder(binding.root) {
 
         fun bind(item: Event) = with(itemView) {
+
+
             binding.event = item
+           // Log.e(item.start,"FECHA:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::")
+
+
+            if(item.start != null) {
+                item.start = item.start.substring(0,10)
+            }
+
             list_comics.adapter = AppearancesAdapter()
+
             (list_comics.adapter as AppearancesAdapter).update(item.comics.appearances)
 
             binding.button2.setOnClickListener {
