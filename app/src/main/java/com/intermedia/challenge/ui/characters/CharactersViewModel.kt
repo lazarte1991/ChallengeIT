@@ -1,6 +1,9 @@
 package com.intermedia.challenge.ui.characters
 
+import android.app.AlertDialog
+import android.content.Context
 import android.util.Log
+import android.widget.Toast
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -34,18 +37,14 @@ class CharactersViewModel(private val charactersRepository: CharactersRepository
 
                 }
                 is NetResult.Error -> {
-
-                    Log.e("ERROR","::::::::::::::::::::::::::::::::::::::::::::::::")
-                    // TODO complete
+                    Log.e(response.toString(),"ERROR")
                 }
             }
         }
     }
 
     fun loadMoreCharacters() {
-
-        offset += 15
-        Log.e(offset.toString(),"::::::::::::::::::::::::::::::::::::::::::::::::")
+       offset += 15
        loadCharacters(offset)
     }
 }
