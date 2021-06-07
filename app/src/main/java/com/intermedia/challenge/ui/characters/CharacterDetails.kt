@@ -1,19 +1,11 @@
 package com.intermedia.challenge.ui.characters
 
-import android.annotation.SuppressLint
-import android.graphics.drawable.ClipDrawable.HORIZONTAL
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
-import android.widget.ArrayAdapter
-import android.widget.ListView
+import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.DividerItemDecoration
+import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.bumptech.glide.Glide
-import com.google.android.material.internal.ContextUtils.getActivity
 import com.intermedia.challenge.R
-import com.intermedia.challenge.data.models.Appearance
-import com.intermedia.challenge.data.models.Appearances
 import com.intermedia.challenge.data.models.Character
 import com.intermedia.challenge.databinding.ActivityCharacterDetailsBinding
 import com.intermedia.challenge.ui.appearances.AppearancesAdapter
@@ -28,21 +20,32 @@ class CharacterDetails : AppCompatActivity() {
         super.onCreate(savedInstanceState)
 
 
+        character = intent.getParcelableExtra<Character>("character")
+
 
         retrieveCharacter()
         renderUi()
         closed()
+        setupRecyclerView()
     }
 
     //
 
 
     private fun retrieveCharacter() {
+
         character = intent.getParcelableExtra<Character>("character")
 
+    }
 
-        //context?.toast(character.toString(), Toast.LENGTH_LONG)
-        // Log.e(intent.toString(),"++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++")
+    private fun setupRecyclerView() {
+        val recyclerView = findViewById<RecyclerView>(R.id.list_comics)
+        recyclerView.layoutManager = LinearLayoutManager(this)
+        val dividerItemDecoration = DividerItemDecoration(
+            recyclerView.context,
+            (recyclerView.layoutManager as LinearLayoutManager?)!!.orientation
+        )
+        recyclerView.addItemDecoration(dividerItemDecoration)
     }
 
     private fun renderUi() {
@@ -51,6 +54,8 @@ class CharacterDetails : AppCompatActivity() {
         binding.character = character
         binding.listComics.adapter = adapter
         adapter.update(character.comics.appearances)
+
+
 
 
 
