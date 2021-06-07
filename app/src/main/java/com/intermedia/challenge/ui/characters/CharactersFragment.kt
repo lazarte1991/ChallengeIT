@@ -46,16 +46,13 @@ class CharactersFragment : Fragment() {
 
     private fun setupCharactersList() {
         adapter.onClickListener = { character ->
-
             val intent = Intent(context, CharacterDetails::class.java)
             intent.putExtra("character",character)
             startActivity(intent)
-            // TODO complete
         }
         binding.listCharacters.adapter = adapter
         viewModel.characters.observe(viewLifecycleOwner, { characters ->
             adapter.update(characters)
-	    // TODO fill adapter items
         })
     }
 }

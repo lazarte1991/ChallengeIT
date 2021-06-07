@@ -18,24 +18,15 @@ class CharacterDetails : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
-
         character = intent.getParcelableExtra<Character>("character")
-
-
         retrieveCharacter()
         renderUi()
         closed()
         setupRecyclerView()
     }
 
-    //
-
-
     private fun retrieveCharacter() {
-
         character = intent.getParcelableExtra<Character>("character")
-
     }
 
     private fun setupRecyclerView() {
@@ -54,24 +45,6 @@ class CharacterDetails : AppCompatActivity() {
         binding.character = character
         binding.listComics.adapter = adapter
         adapter.update(character.comics.appearances)
-
-
-
-
-
-       /* val arrayAdapter : ArrayAdapter<String>
-        val comics = mutableListOf(character.comics)
-        val listaComics = findViewById<ListView>(R.id.lista_comics)
-        val arrayString : ArrayList<String> = ArrayList()
-
-        for(i in comics[0].appearances) {
-            arrayString.add(i.name)
-        }
-
-        arrayAdapter = ArrayAdapter(this,android.R.layout.simple_list_item_1, arrayString)
-
-        listaComics.adapter = arrayAdapter*/
-
     }
 
     private fun closed(){
@@ -79,19 +52,4 @@ class CharacterDetails : AppCompatActivity() {
             onBackPressed()
         }
     }
-
-
-
-/*
-  //
-  //val imgView = findViewById<ImageView>(R.id.detailsImage)
-  //val linearLayout = findViewById<LinearLayout>(R.id.detailsImage)
-  //val imageView = ImageView(this)
-  //Glide.with(this).load(img).into(detailsImage)
-
-  //detailsName.text = character.name
-  //detailsDescription.text = character?.description
-   img.let { mCover ->
-              detailsImage.LoadImage(mCover)
-}*/
 }

@@ -1,8 +1,9 @@
 package com.intermedia.challenge.data.models
 
-import java.io.Serializable
-import java.util.*
+import android.os.Parcelable
+import kotlinx.android.parcel.Parcelize
 
+@Parcelize
 data class Event(
     val id: Int = 0,
     val title: String = "",
@@ -20,4 +21,4 @@ data class Event(
     val creators: Appearances = Appearances(),
     val next: Appearance = Appearance(),
     val previous: Appearance = Appearance()
-) : Serializable
+) : Parcelable
