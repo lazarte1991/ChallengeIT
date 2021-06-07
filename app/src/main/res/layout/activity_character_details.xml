@@ -86,12 +86,13 @@
                         android:text="@{character.description}"
                         android:textColor="@color/black_header"
                         android:textSize="14sp"
-                        tools:text="lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem loremlorem lorem lorem loremlorem lorem" />
+                        tools:text="lorem" />
 
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:orientation="vertical">
+                        android:orientation="vertical"
+                        android:padding="16dp">
 
                         <TextView
                             android:id="@+id/textView3"

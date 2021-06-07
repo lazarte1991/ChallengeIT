@@ -2,23 +2,17 @@ package com.intermedia.challenge.ui.main
 
 import android.content.Context
 import android.os.Bundle
-import androidx.appcompat.app.ActionBar
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.NavController
 import androidx.navigation.findNavController
-import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.setupWithNavController
 import com.intermedia.challenge.R
 import com.intermedia.challenge.databinding.ActivityMainScreenBinding
-import kotlinx.android.synthetic.main.activity_main_screen.*
-import kotlinx.android.synthetic.main.view_hero_item.*
-import kotlinx.android.synthetic.main.view_hero_item.view.*
 
 enum class ProviderType{
     BASIC,
     FACEBOOK
 }
-
 
 class MainScreenActivity : AppCompatActivity() {
 
@@ -29,7 +23,6 @@ class MainScreenActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityMainScreenBinding.inflate(layoutInflater)
         setContentView(binding.root)
-
 
         navController = findNavController(R.id.nav_host_fragment)
         binding.bottomNavView.setupWithNavController(navController)
@@ -43,11 +36,6 @@ class MainScreenActivity : AppCompatActivity() {
         prefs.putString("email", email)
         prefs.putString("provider",provider)
         prefs.apply()
-
-
-
     }
-
-
 
 }

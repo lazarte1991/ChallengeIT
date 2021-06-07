@@ -1,9 +1,6 @@
 package com.intermedia.challenge.ui.characters
 
-import android.app.AlertDialog
-import android.content.Context
 import android.util.Log
-import android.widget.Toast
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -19,10 +16,9 @@ class CharactersViewModel(private val charactersRepository: CharactersRepository
     val characters: LiveData<List<Character>> get() = _characters
     private val list = mutableListOf<Character>()
 
-
     var offset = 0
-    init {
 
+    init {
         loadCharacters(offset)
     }
 
@@ -31,10 +27,8 @@ class CharactersViewModel(private val charactersRepository: CharactersRepository
             when (val response = charactersRepository.getCharacters(offset)) {
 
                 is NetResult.Success -> {
-
                     list.addAll(response.data.charactersList.characters)
                     _characters.postValue(list)
-
                 }
                 is NetResult.Error -> {
                     Log.e(response.toString(),"ERROR")

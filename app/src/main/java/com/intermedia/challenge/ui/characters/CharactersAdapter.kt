@@ -2,7 +2,6 @@ package com.intermedia.challenge.ui.characters
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
 import com.intermedia.challenge.ui.base.BaseAdapter
 import com.intermedia.challenge.data.models.Character
